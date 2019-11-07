@@ -1,0 +1,7 @@
+{
+  "name": "icon-automation",
+  "id": "739395588962138807",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}

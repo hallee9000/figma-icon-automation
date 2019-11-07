@@ -1,0 +1,126 @@
+/* these styles are just used for presentation of components */  
+body {
+  margin: 20px;
+  font-size: 20px;
+  font-family: Arial,x-locale-body,sans-serif;
+}
+
+h1, h2, h3 {
+  box-sizing: border-box;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+hr {
+  margin: 48px 0 48px 0;
+  border-top: 1px solid #cccccc;
+  border-bottom: none;
+  outline: none;
+}
+
+ul{
+  margin: 0;
+  padding-left: 16px;
+}
+
+textarea{
+  width: 100%!important;
+  margin: 0!important;
+}
+
+a{
+  color: #18a0fb
+}
+
+.container{
+  padding-top: 20px;
+}
+
+.bar-adjust{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  border-bottom: 1px solid #F3F3F3;
+  background: #FFF;
+}
+
+.adjust-item{
+  padding: 2px 10px;
+  line-height: 30px;
+  cursor: pointer;
+  color: #999;
+  border-bottom: 1px solid transparent;
+}
+.adjust-item.active{
+  color: #333;
+  border-color: #333;
+}
+
+.setting-footer{
+  padding: 10px 0;
+  text-align: center;
+  color: #999;
+}
+
+.form-item{
+  margin-bottom: 8px;
+}
+
+.form-item textarea{
+  margin-bottom: 8px!important;
+}
+
+.form-item .help-tip{
+  padding: 5px;
+  color: #e85007;
+}
+
+.form-item button:not(.button-block){
+  margin-right: 8px!important;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.alert{
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: #666;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+}
+
+.alert-warning {
+  color: #F90;
+  background-color: rgba(255, 153, 0, 0.05);
+  border: 1px solid rgba(255, 153, 0, 0.24);
+}
+
+.alert-success {
+  color: #09cf83;
+  background-color: #d8f9ec;
+  border: 1px solid rgb(197, 245, 226);
+}
+
+.hide {
+  display: none;
+}

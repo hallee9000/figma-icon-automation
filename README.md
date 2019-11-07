@@ -1,0 +1,2 @@
+# Figma Icon Automation Plugin
+Figma Icon Automation is a plugin that helps you synchronize your icons' SVG code to a Github Repository, Then the Github Action will convert them to React code and update to NPM automatically.
