@@ -2,7 +2,6 @@
   "name": "icon-automation",
   "version": "1.0.0",
   "description": "A figma plugin to push icon svg code to Github automatically.",
-  "main": "index.js",
   "author": "Jun",
   "license": "MIT",
   "scripts": {

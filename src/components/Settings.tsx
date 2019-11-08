@@ -87,7 +87,7 @@ export default class Settings extends React.Component<Props> {
           <button className='button button--primary button-block' onClick={this.handleSubmit}>Go</button>
         </div>
         <div className="setting-footer form-item type type--pos-medium-normal">
-          developed by <a href="https://github.com/leadream" target="_blank">Jun</a>
+          developed by <a href="https://github.com/leadream" target="_blank">Leadream</a>
         </div>
       </div>
     )
