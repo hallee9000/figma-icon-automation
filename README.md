@@ -36,6 +36,8 @@ Install figma-icon-automation plugin.
 #### 3. Fork Example Repository
 Now you should fork my [example repository](https://github.com/leadream/juuust-icon), which is a place for your components' code.
 
+>Github Actions is in beta now, so you may need to sign it up [here](https://github.com/features/actions).
+
 ![fork-repository](./imgs/fork-repository.png)
 
 #### 4. Generate Three Tokens
