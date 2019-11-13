@@ -44,7 +44,7 @@ Now you should fork my [example repository](https://github.com/leadream/juuust-i
 We need Figma、GitHub and NPM's tokens for the rest steps。
 - **Figma**: Open your personal settings page, find token section, create a new token. Copy it to use later.
 ![figma-token](./imgs/figma-token.png)
-- **GitHub**: Open [GitHub token](https://github.com/settings/tokens) page, generate a new token and copy it to use later.
+- **GitHub**: Open [GitHub token](https://github.com/settings/tokens) page and generate a new token and copy it to use later. **One thing to note is that You should check the repo scope**.
 ![github-token](./imgs/github-token.png)
 - **NPM**: Go to your NPM profile page, find tokens section. Generate a new token and copy it to user later.
 ![npm-token](./imgs/npm-token.png)
@@ -59,7 +59,7 @@ The GitHub needs 3 secrets, which you can set in Settings -> Secrets page.
 ![repo-secrets](./imgs/repo-secrets.png)
 
 #### 6. Setup the Plugin
-Open Figma, right click in canvas and select Plugins -> icon-automation. You should fill in the repository URL (it's your forked repository, not example repository) and GitHub token, then click go button.
+Open Figma, right click in canvas and select Plugins -> icon-automation. You should fill in the repository URL (it's your forked repository, not example repository) and GitHub token, then click go button. Don't push now, we'll be back later.
 
 ![plugin-settings](./imgs/plugin-settings.png)
 

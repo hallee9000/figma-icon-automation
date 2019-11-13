@@ -48,7 +48,7 @@ Figma 图标自动化插件是一个可以帮助你将设计文件中的图标�
 我们需要 Figma、GitHub 和 NPM 三个平台的 token。
 - **Figma**：打开 Figma 的个人设置页面，创建一个新的 token，复制下来备用（只会显示这一次，一刷新就没了）。
 ![figma-token](./imgs/figma-token.png)
-- **GitHub**：打开 [GitHub token](https://github.com/settings/tokens) 页面，生成一个 token，复制下来备用。
+- **GitHub**：打开 [GitHub token](https://github.com/settings/tokens) 页面，生成一个 token，复制下来备用。**此处需要注意，记得要勾选下面的 repo scope**。
 ![github-token](./imgs/github-token.png)
 - **NPM**：前往 NPM 的个人 token 页面，生成一个 token，复制下来备用。
 ![npm-token](./imgs/npm-token.png)
@@ -62,7 +62,7 @@ Figma 图标自动化插件是一个可以帮助你将设计文件中的图标�
 ![repo-secrets](./imgs/repo-secrets.png)
 
 #### 6. 在插件中填写仓库地址和 token
-打开 Figma，右键依次选择 Plugins -> Development -> icon-automation，打开插件，此时我们需要填写两个东西。第一个是填写第三步 fork 到你的账号下的仓库地址（是你自己的仓库地址，不要填写我的 demo 的地址）。同时填写第四步中生成的 GitHub token，点击 go 之后插件会进入到发布页面。
+打开 Figma，右键依次选择 Plugins -> Development -> icon-automation，打开插件，此时我们需要填写两个东西。第一个是填写第三步 fork 到你的账号下的仓库地址（是你自己的仓库地址，不要填写我的 demo 的地址）。同时填写第四步中生成的 GitHub token，点击 go 之后插件会进入到发布页面。此时我们先不提交，一会还会回来的。
 
 ![plugin-settings](./imgs/plugin-settings.png)
 
