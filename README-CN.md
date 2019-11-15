@@ -33,7 +33,7 @@ Figma 图标自动化插件是一个可以帮助你将设计文件中的图标�
 ![figma-file](./imgs/figma-file.png)
 
 #### 2. 安装插件
-还没上线，你可以下载这个仓库并解压，在 Figma 客户端中的插件页面右侧点击 Development 后面的加号，创建一个新插件。然后点击 Link exsiting plugin，选择解压出来的文件中的 manifest.json 文件。
+进入 [figma-icon-automation 插件主页](https://www.figma.com/c/plugin/739395588962138807/figma-icon-automation)，点击安装即可。
 
 ![install-plugin](./imgs/install-plugin.png)
 

@@ -31,7 +31,9 @@ First of all, you should create a Figma file, in which you can place your icon c
 ![figma-file](./imgs/figma-file.png)
 
 #### 2. Install Plugin
-Install figma-icon-automation plugin.
+Go to [figma-icon-automation](https://www.figma.com/c/plugin/739395588962138807/figma-icon-automation) homepage and click install button.
+
+![install-plugin](./imgs/install-plugin.png)
 
 #### 3. Fork Example Repository
 Now you should fork my [example repository](https://github.com/leadream/juuust-icon), which is a place for your components' code.
