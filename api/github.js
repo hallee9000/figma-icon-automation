@@ -3,7 +3,8 @@ export const base = 'https://api.github.com'
 export const getContent = (filePath, githubData) => {
   return fetch(`${base}/repos/${githubData.owner}/${githubData.name}/contents/${filePath}`, {
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'Authorization': `token ${githubData.githubToken}`
     }
   })
   .then(response => response.json())
@@ -17,7 +18,8 @@ export const getContent = (filePath, githubData) => {
 export const getCommit = (githubData) => {
   return fetch(`${base}/repos/${githubData.owner}/${githubData.name}/commits/refs/heads/master`, {
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'Authorization': `token ${githubData.githubToken}`
     }
   })
   .then(response => response.json())
