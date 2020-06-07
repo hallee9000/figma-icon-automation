@@ -49,7 +49,7 @@ export default class Settings extends React.Component<Props> {
     }
   }
   render () {
-    const { visible } = this.props
+    const { visible, githubData } = this.props
     const { githubRepo, githubToken, warning } = this.state
     return (
       <div className={!visible ? 'hide' : ''}>
@@ -84,7 +84,9 @@ export default class Settings extends React.Component<Props> {
           />
         </div>
         <div className="form-item">
-          <button className='button button--primary button-block' onClick={this.handleSubmit}>Go</button>
+          <button className='button button--primary button-block' onClick={this.handleSubmit}>
+            {githubData ? 'Update' : 'Go'}
+          </button>
         </div>
         <div className="setting-footer form-item type type--pos-medium-normal">
           developed by <a href="https://github.com/leadream" target="_blank">Leadream</a>

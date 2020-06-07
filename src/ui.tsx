@@ -11,6 +11,7 @@ class App extends React.Component {
   state = {
     updatorVisible: false,
     githubData: null,
+    webhookData: null,
     settingSwitch: false,
     isDone: false
   }
@@ -30,7 +31,7 @@ class App extends React.Component {
     }
   }
   componentDidMount () {
-    // 所有的消息接收集中在这里
+    // receive messages here
     window.onmessage = async (event) => {
       const msg = event.data.pluginMessage
       switch (msg.type) {
@@ -42,14 +43,22 @@ class App extends React.Component {
             })
           }
           break
+        case 'webhookDataGot':
+          if (msg.webhookData) {
+            this.setState({
+              webhookData: msg.webhookData
+            })
+          }
+          break
       }
     }
   }
   render() {
-    const { updatorVisible, githubData, settingSwitch, isDone } = this.state
+    const { updatorVisible, githubData, webhookData, settingSwitch, isDone } = this.state
+    const tabVisible = githubData&&!isDone
     return (
-      <div className="container">
-        <div className={'bar-adjust '+ ((githubData&&!isDone) ? '' : 'hide')}>
+      <div className={'container '+ (!tabVisible ? '' : 'container-with-tab')}>
+        <div className={'bar-adjust '+ (tabVisible ? '' : 'hide')}>
           <div
             className={'adjust-item type type--pos-medium-bold '+(updatorVisible ? '' : 'active')}
             onClick={e => this.toggleView()}
@@ -72,7 +81,9 @@ class App extends React.Component {
         <Updator
           onSucceed={this.onSucceed}
           visible={updatorVisible}
-          githubData={githubData}/>
+          githubData={githubData}
+          webhookData={webhookData}
+        />
       </div>
     )
   }

@@ -1,27 +1,34 @@
-figma.showUI(__html__, { width: 320, height: 320 })
+figma.showUI(__html__, { width: 320, height: 436 })
 
 // get github settings
-function getGithubSettings () {
-  return figma.clientStorage.getAsync('githubData')
+function getLocalData (key) {
+  return figma.clientStorage.getAsync(key)
 }
 
 // set github settings
-function setGithubSettings (data) {
-  figma.clientStorage.setAsync('githubData', data)
+function setLocalData (key, data) {
+  figma.clientStorage.setAsync(key, data)
 }
 
 // send github data to UI
 function init () {
-  getGithubSettings()
+  getLocalData('githubData')
     .then(githubData => {
       figma.ui.postMessage({ type: 'githubDataGot', githubData })
+    })
+  getLocalData('webhookData')
+    .then(webhookData => {
+      figma.ui.postMessage({ type: 'webhookDataGot', webhookData })
     })
 }
 
 figma.ui.onmessage = msg => {
   switch (msg.type) {
     case 'setGithubData':
-      setGithubSettings(msg.githubData)
+      setLocalData('githubData', msg.githubData)
+      break
+    case 'setWebhookData':
+      setLocalData('webhookData', msg.webhookData)
       break
     case 'cancel':
       figma.closePlugin()

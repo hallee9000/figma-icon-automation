@@ -1,13 +1,15 @@
 import * as React from 'react'
+import Webhook from './Webhook'
 import { getContent, getCommit, updatePackage, createPullRequest, createBranch } from '../../api/github'
+import { sendNotification } from '../../api/webhook'
 import { versionValue } from '../../utils/helper'
-
 
 declare function require(path: string): any
 
 export interface Props {
   onSucceed: () => void;
   githubData: {owner?: string, name?: string, githubToken?: string};
+  webhookData: {webhookUrl: string, data: string};
   visible: boolean;
 }
 
@@ -23,7 +25,8 @@ export default class Settings extends React.Component<Props> {
     currentVersion: '',
     currentVersionTip: '',
     resultTip: '',
-    prUrl: ''
+    prUrl: '',
+    webhookData: null
   }
   getVersion = async (githubData) => {
     const { contents, sha } = await getContent('package.json', githubData)
@@ -61,6 +64,12 @@ export default class Settings extends React.Component<Props> {
     const { name, value } = e.target
     this.setState({[name]: value})
   }
+  handleWebhookFilled = (webhookUrl, data) => {
+    const noData = !webhookUrl && !data
+    this.setState({
+      webhookData: noData? null : {webhookUrl, data}
+    })
+  }
   validate = (callback) => {
     const { version, message, currentVersion } = this.state
     // TODO: should validate async
@@ -91,26 +100,24 @@ export default class Settings extends React.Component<Props> {
     })
     callback && callback()
   }
-  handleSubmit = () => {
-    this.validate(() => {
+  handleSubmit = async () => {
+    this.validate(async () => {
       this.setState({isPushing: true})
-      this.createBranch()
-        .then(({branchName}) => {
-          this.changeVersion(branchName)
-            .then(() => {
-              this.createCommitAndPR(branchName)
-                .then(({html_url}) => {
-                  this.props.onSucceed()
-                  this.setState({
-                    version: '',
-                    message: '',
-                    isPushing: false,
-                    resultTip: 'Pushing successfully! You can now go to Github and merge this PR. Then your icons will be published to NPM automatically.',
-                    prUrl: html_url
-                  })
-                })
-            })
-        })
+
+      const { branchName } = await this.createBranch()
+      await this.changeVersion(branchName)
+      const { html_url } = await this.createCommitAndPR(branchName)
+
+      const { version, message, webhookData } = this.state
+      webhookData && sendNotification(webhookData, html_url, version, message)
+
+      this.setState({
+        version: '',
+        message: '',
+        isPushing: false,
+        resultTip: 'Pushing successfully! You can now go to Github and merge this PR. Then your icons will be published to NPM automatically.',
+        prUrl: html_url
+      })
     })
   }
   onCancel = () => {
@@ -122,7 +129,7 @@ export default class Settings extends React.Component<Props> {
     }
   }
   render () {
-    const { visible } = this.props
+    const { visible, webhookData } = this.props
     const { isPushing, version, message, versionTip, messageTip, currentVersionTip, resultTip, prUrl } = this.state
     return (
       <div className={'updator ' + (!visible ? 'hide' : '')}>
@@ -171,6 +178,11 @@ export default class Settings extends React.Component<Props> {
             <div className="type type--pos-medium-normal help-tip">{messageTip}</div>
           }
         </div>
+        <Webhook
+          hidden={resultTip}
+          onFilled={this.handleWebhookFilled}
+          webhookData={webhookData}
+        />
         <div className={'form-item '+(resultTip ? 'hide' : '')}>
           <button
             onClick={this.handleSubmit}
