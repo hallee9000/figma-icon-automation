@@ -26,6 +26,7 @@ export default class Settings extends React.Component<Props> {
     currentVersionTip: '',
     resultTip: '',
     prUrl: '',
+    isSending: false,
     webhookData: null
   }
   getVersion = async (githubData) => {
@@ -108,9 +109,6 @@ export default class Settings extends React.Component<Props> {
       await this.changeVersion(branchName)
       const { html_url } = await this.createCommitAndPR(branchName)
 
-      const { version, message, webhookData } = this.state
-      webhookData && sendNotification(webhookData, html_url, version, message)
-
       this.setState({
         version: '',
         message: '',
@@ -118,6 +116,13 @@ export default class Settings extends React.Component<Props> {
         resultTip: 'Pushing successfully! You can now go to Github and merge this PR. Then your icons will be published to NPM automatically.',
         prUrl: html_url
       })
+
+      const { version, message, webhookData } = this.state
+      if (webhookData) {
+        this.setState({isSending: true})
+        await sendNotification(webhookData, html_url, version, message)
+        this.setState({isSending: false})
+      }
     })
   }
   onCancel = () => {
@@ -130,7 +135,10 @@ export default class Settings extends React.Component<Props> {
   }
   render () {
     const { visible, webhookData } = this.props
-    const { isPushing, version, message, versionTip, messageTip, currentVersionTip, resultTip, prUrl } = this.state
+    const {
+      isPushing, version, message, versionTip, messageTip,
+      currentVersionTip, resultTip, prUrl, webhookData: whd, isSending
+    } = this.state
     return (
       <div className={'updator ' + (!visible ? 'hide' : '')}>
         <div className="form-item">
@@ -146,9 +154,13 @@ export default class Settings extends React.Component<Props> {
             resultTip &&
             <div className="type type--pos-medium-bold alert alert-success">
               <h3>Congratulations!</h3>
-              {resultTip}
+              {resultTip}<br/>
               Click <a href={prUrl} target="_blank">here</a> to open the PR link.
             </div>
+          }
+          {
+            whd && isSending &&
+            <p className="type type--pos-medium-normal">Sending notification, please wait for a minute……</p>
           }
         </div>
         <div className={'form-item '+(resultTip ? 'hide' : '')}>
