@@ -109,6 +109,8 @@ export default class Settings extends React.Component<Props> {
       await this.changeVersion(branchName)
       const { html_url } = await this.createCommitAndPR(branchName)
 
+      const { version, message, webhookData } = this.state
+
       this.setState({
         version: '',
         message: '',
@@ -117,7 +119,7 @@ export default class Settings extends React.Component<Props> {
         prUrl: html_url
       })
 
-      const { version, message, webhookData } = this.state
+      console.log(version, message)
       if (webhookData) {
         this.setState({isSending: true})
         await sendNotification(webhookData, html_url, version, message)
