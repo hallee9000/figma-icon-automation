@@ -37,7 +37,7 @@ Go to [figma-icon-automation](https://www.figma.com/c/plugin/739395588962138807/
 ![install-plugin](./imgs/install-plugin.png)
 
 #### 3. Fork Example Repository
-Now you should fork my example repository, which is a place for your components' code.
+Now you should fork my sample repositories, which is a place for your components' code.
 
 - React: https://github.com/leadream/juuust-react-icon
 - Vue: https://github.com/leadream/juuust-vue-icon
