@@ -16,6 +16,7 @@ There are six steps here:
 - **Create Pull Request in Plugin**: Fill in the GitHub repository URL and token to push your updates to GitHub, which can create a Pull Request for you.
 - **Merge PR, Trigger Actions**: Now you can merge this PR, which will trigger the GitHub Actions workflow.
 - **Process and Convert SVG code**: GitHub Actions will fetch Figma components's SVG code through Figma's API and process it. After it, GitHub Actions will convert them into React component code.
+- **Generate GitHub Pages for icon showcase**: GitHub Actions will also generate GitHub Pages code to showcase your icons online. You can change the code in sample repositories.
 - **Publish to NPM**: Finally, it'll publish processed code to [NPM](https://www.npmjs.com/). 
 - **install or update from NPM**: Developers can use them through terminal execution, which is familiar to them.
 
@@ -36,9 +37,10 @@ Go to [figma-icon-automation](https://www.figma.com/c/plugin/739395588962138807/
 ![install-plugin](./imgs/install-plugin.png)
 
 #### 3. Fork Example Repository
-Now you should fork my [example repository](https://github.com/leadream/juuust-icon), which is a place for your components' code.
+Now you should fork my example repository, which is a place for your components' code.
 
->Github Actions is in beta now, so you may need to sign it up [here](https://github.com/features/actions).
+- React: https://github.com/leadream/juuust-react-icon
+- Vue: https://github.com/leadream/juuust-vue-icon
 
 ![fork-repository](./imgs/fork-repository.png)
 
