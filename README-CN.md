@@ -60,7 +60,7 @@ Figma 图标自动化插件是一个可以帮助你将设计文件中的图标�
 - **FIGMA_FILE_URL**：第一步创建的 Figma 文件地址。
 - **FIGMA_TOKEN**：上一步创建的 Figma token。
 - **NPM_AUTH_TOKEN**：上一步创建的 NPM token。
-- **GH_TOCKEN**：上一步创建的 GitHub token（为了gh-pages）。
+- **GH_TOKEN**：上一步创建的 GitHub token（为了gh-pages）。
 
 ![repo-secrets](./imgs/repo-secrets.png)
 
