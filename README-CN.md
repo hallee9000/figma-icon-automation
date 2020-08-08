@@ -55,11 +55,12 @@ Figma 图标自动化插件是一个可以帮助你将设计文件中的图标�
 - **NPM**：前往 NPM 的个人 token 页面，生成一个 token，复制下来备用。
 ![npm-token](./imgs/npm-token.png)
 
-#### 5. 填写三个 Secrets
-进入 GitHub 的仓库下 Settings -> Secrets 页面中，添加三个 Secret。它们分别是：
+#### 5. 填写四个 Secrets
+进入 GitHub 的仓库下 Settings -> Secrets 页面中，添加四个 Secret。它们分别是：
 - **FIGMA_FILE_URL**：第一步创建的 Figma 文件地址。
 - **FIGMA_TOKEN**：上一步创建的 Figma token。
 - **NPM_AUTH_TOKEN**：上一步创建的 NPM token。
+- **GH_TOCKEN**：上一步创建的 GitHub token（为了gh-pages）。
 
 ![repo-secrets](./imgs/repo-secrets.png)
 

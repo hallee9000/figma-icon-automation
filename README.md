@@ -53,12 +53,13 @@ We need Figma、GitHub and NPM's tokens for the rest steps。
 - **NPM**: Go to your NPM profile page, find tokens section. Generate a new token and copy it to user later.
 ![npm-token](./imgs/npm-token.png)
 
-#### 5. Set 3 Secrets
+#### 5. Set 4 Secrets
 
-The GitHub needs 3 secrets, which you can set in Settings -> Secrets page.
+The GitHub needs 4 secrets, which you can set in Settings -> Secrets page.
 - **FIGMA_FILE_URL**: The Figma file URL in the first step.
 - **FIGMA_TOKEN**: Figma token created in previous step.
 - **NPM_AUTH_TOKEN**: NPM token created in previous step.
+- **GH_TOCKEN**：GitHub token created in previous step（ for gh-pages ）。
 
 ![repo-secrets](./imgs/repo-secrets.png)
 
