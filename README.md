@@ -59,7 +59,7 @@ The GitHub needs 4 secrets, which you can set in Settings -> Secrets page.
 - **FIGMA_FILE_URL**: The Figma file URL in the first step.
 - **FIGMA_TOKEN**: Figma token created in previous step.
 - **NPM_AUTH_TOKEN**: NPM token created in previous step.
-- **GH_TOCKEN**：GitHub token created in previous step（ for gh-pages ）。
+- **GH_TOKEN**：GitHub token created in previous step（ for gh-pages ）。
 
 ![repo-secrets](./imgs/repo-secrets.png)
 
